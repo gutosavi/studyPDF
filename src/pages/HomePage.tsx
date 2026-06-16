@@ -21,15 +21,14 @@ const HomePage = () => {
       size: `${fileSizeInMB} MB`,
       uploadDate,
     });
-
-    navigate('/chat', { state: { document } });
   };
 
   React.useEffect(() => {
     if (document) {
+      navigate('/chat', { state: { document } });
       console.log('Documento atualizado', document);
     }
-  }, [document]);
+  }, [navigate, document]);
 
   return <UploadArea onFileUpload={handleFileUpload} />;
 };

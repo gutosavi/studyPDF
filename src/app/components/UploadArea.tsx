@@ -1,11 +1,32 @@
 import { FileText, Upload } from 'lucide-react';
 import React from 'react';
 
-const UploadArea = () => {
+interface UploadAreaProps {
+  onFileUpload: (file: File) => void;
+}
+
+const UploadArea = ({ onFileUpload }: UploadAreaProps) => {
   const [isDragging, setIsDragging] = React.useState(false);
 
-  const onFileUpload = (file: File) => {
-    console.log('PDF carregado:', file);
+  const handleDragOver = (e: React.DragEvent) => {
+    e.preventDefault(); // alguns elementos por padrão recusam elementos arrastados
+    setIsDragging(true);
+  }; // disparado quando o elemento está sendo arrastado sobre o alvo.
+
+  const handleDragLeave = () => {
+    setIsDragging(false);
+  }; // disparado quando o elemento sai da área  do alvo
+
+  const handleDrop = (e: React.DragEvent) => {
+    e.preventDefault();
+    setIsDragging(false);
+
+    const files = Array.from(e.dataTransfer.files);
+    const pdfFile = files.find((file) => file.type === 'application/pdf');
+
+    if (pdfFile) {
+      onFileUpload(pdfFile);
+    }
   };
 
   const handleFileInput = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -18,6 +39,9 @@ const UploadArea = () => {
   return (
     <section className="flex items-center justify-center min-h-screen p-6 bg-gray-50">
       <div
+        onDragOver={handleDragOver}
+        onDragLeave={handleDragLeave}
+        onDrop={handleDrop}
         className={`
           relative w-full max-w-2xl p-12 rounded-2xl border-2 border-dashed
           transition-all duration-200 cursor-pointer
@@ -36,6 +60,7 @@ const UploadArea = () => {
           onChange={handleFileInput}
           className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
         />
+
         <div className="flex flex-col items-center gap-4 text-center">
           <div
             className={`p-4 rounded-full transition-colors ${isDragging ? 'bg-blue-100' : 'bg-gray-100'}`}

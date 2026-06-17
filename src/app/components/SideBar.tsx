@@ -1,15 +1,30 @@
 import { Calendar, FileText, FileType, X } from 'lucide-react';
 import React from 'react';
 
-const SideBar = () => {
+interface SideBarProps {
+  isMobile?: boolean;
+  onClose?: () => void;
+}
+
+const SideBar = ({ isMobile, onClose }: SideBarProps) => {
   return (
-    <aside>
+    <aside
+      className={`
+      ${isMobile ? 'fixed inset-0 z-50 bg-white' : 'w-80 border-r border-gray-200'}
+      bg-white flex flex-col
+    `}
+    >
       <div className="p-6 border-b border-gray-200">
         <div className="flex items-center justify-between mb-4">
           <h2>Documento</h2>
-          <button className="p-1 hover:bg-gray-100 rounded-lg transition-colors">
-            <X className="w-5 h5 text-gray-500" />
-          </button>
+          {isMobile && onClose && (
+            <button
+              onClick={onClose}
+              className="p-1 hover:bg-gray-100 rounded-lg transition-colors"
+            >
+              <X className="w-5 h5 text-gray-500" />
+            </button>
+          )}
         </div>
 
         <div className="flex items-start gap-3 p-3 bg-gray-50 rounded-lg">

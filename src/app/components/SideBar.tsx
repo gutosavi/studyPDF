@@ -1,12 +1,22 @@
 import { Calendar, FileText, FileType, X } from 'lucide-react';
-import React from 'react';
 
 interface SideBarProps {
+  fileName: string;
+  fileSize: string;
+  uploadDate: string;
+  countPage: number;
   isMobile?: boolean;
   onClose?: () => void;
 }
 
-const SideBar = ({ isMobile, onClose }: SideBarProps) => {
+const SideBar = ({
+  fileName,
+  fileSize,
+  uploadDate,
+  countPage,
+  isMobile,
+  onClose,
+}: SideBarProps) => {
   return (
     <aside
       className={`
@@ -33,9 +43,9 @@ const SideBar = ({ isMobile, onClose }: SideBarProps) => {
           </div>
           <div className="flex-1 min-w-0">
             <p className="text-sm font-medium text-gray-900 truncate">
-              fileName
+              {fileName}
             </p>
-            <p className="text-xs text-gray-500 mt-0.5">fileSize</p>
+            <p className="text-xs text-gray-500 mt-0.5">{fileSize}</p>
           </div>
         </div>
       </div>
@@ -53,7 +63,7 @@ const SideBar = ({ isMobile, onClose }: SideBarProps) => {
               </div>
               <div>
                 <p className="text-xs text-gray-500">Data de upload</p>
-                <p className="text-sm text-gray-900">uploadDate</p>
+                <p className="text-sm text-gray-900">{uploadDate}</p>
               </div>
             </div>
 
@@ -63,7 +73,7 @@ const SideBar = ({ isMobile, onClose }: SideBarProps) => {
               </div>
               <div>
                 <p className="text-xs text-gray-500">Páginas</p>
-                <p className="text-sm text-gray-900">pageCount</p>
+                <p className="text-sm text-gray-900">{countPage}</p>
               </div>
             </div>
           </div>

@@ -11,10 +11,22 @@ const ChatPage = () => {
   return (
     <section className="flex h-screen bg-white overflow-hidden">
       <div className="hidden lg:block">
-        <SideBar />
+        <SideBar
+          fileName={document.name}
+          fileSize={document.size}
+          uploadDate={document.uploadDate}
+          countPage={document.countPage}
+        />
       </div>
       {showSideBar && (
-        <SideBar onClose={() => setShowSideBar(false)} isMobile={true} />
+        <SideBar
+          fileName={document.name}
+          fileSize={document.size}
+          uploadDate={document.uploadDate}
+          countPage={document.countPage}
+          onClose={() => setShowSideBar(false)}
+          isMobile={true}
+        />
       )}
       <div className="flex-1 flex flex-col min-w-0">
         <Header onClick={() => setShowSideBar(true)} />

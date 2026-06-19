@@ -1,4 +1,5 @@
 import { Calendar, FileText, FileType, X } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 interface SideBarProps {
   fileName: string;
@@ -17,6 +18,8 @@ const SideBar = ({
   isMobile,
   onClose,
 }: SideBarProps) => {
+  const navigate = useNavigate();
+
   return (
     <aside
       className={`
@@ -81,7 +84,10 @@ const SideBar = ({
       </div>
 
       <div className="p-6 border-t border-gray-200">
-        <button className="w-full px-4 py-2.5 text-sm font-medium text-red-600 hover:bg-red-50 rounded-lg transition-colors">
+        <button
+          onClick={() => navigate('/')}
+          className="w-full px-4 py-2.5 text-sm font-medium text-red-600 hover:bg-red-50 rounded-lg transition-colors"
+        >
           Remover documento
         </button>
       </div>

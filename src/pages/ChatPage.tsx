@@ -2,6 +2,8 @@ import React from 'react';
 import { useLocation } from 'react-router-dom';
 import Header from '../app/components/ui/Header';
 import SideBar from '../app/components/SideBar';
+import ChatArea from '../app/components/ChatArea';
+import MessageInput from '../app/components/MessageInput';
 
 const ChatPage = () => {
   const [showSideBar, setShowSideBar] = React.useState(false);
@@ -30,6 +32,10 @@ const ChatPage = () => {
       )}
       <div className="flex-1 flex flex-col min-w-0">
         <Header onClick={() => setShowSideBar(true)} />
+
+        <ChatArea />
+
+        <MessageInput />
       </div>
     </section>
   );

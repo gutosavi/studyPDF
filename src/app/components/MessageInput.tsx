@@ -1,10 +1,31 @@
 import { Send } from 'lucide-react';
 import React from 'react';
 
-const MessageInput = () => {
-  const handleSubmit = (e: React.SubmitEvent) => {
+interface MessageInputProps {
+  onSend: (message: string) => void;
+  disabled?: boolean;
+}
+
+const MessageInput = ({ onSend, disabled }: MessageInputProps) => {
+  const [message, setMessage] = React.useState('');
+
+  const sendMessage = () => {
+    if (message.trim() && !disabled) {
+      onSend(message.trim());
+      setMessage('');
+    }
+  };
+
+  const handleSubmit = (e: React.SubmitEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log('É noixx');
+    sendMessage();
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      sendMessage();
+    }
   };
 
   return (
@@ -13,6 +34,10 @@ const MessageInput = () => {
         <div className="flex gap-3 items-center">
           <div className="flex-1 relative">
             <textarea
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+              onKeyDown={handleKeyDown}
+              disabled={disabled}
               placeholder="Faça uma pergunta sobre o documento..."
               rows={1}
               className="w-full px-4 py-3 pr-12 bg-gray-50 border border-gray-200 rounded-xl resize-none focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent disabled:opacity-50 disabled:cursor-not-allowed text-sm"

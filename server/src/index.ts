@@ -1,6 +1,7 @@
 import 'dotenv/config';
 import express from 'express';
 import cors from 'cors';
+import uploadRouter from './routes/upload';
 import { GoogleGenAI } from '@google/genai';
 
 const app = express();
@@ -9,6 +10,8 @@ const PORT = 3000;
 
 app.use(cors());
 app.use(express.json());
+
+app.use(uploadRouter);
 
 app.post('/chat', async (req, res) => {
   try {

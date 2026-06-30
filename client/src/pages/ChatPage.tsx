@@ -34,9 +34,12 @@ const ChatPage = () => {
   };
 
   const handleSendMessage = (content: string) => {
-    addUserMessage(content);
+    addUserMessage(content); // aqui está o conteúdo do input
     setIsProcessing(true);
 
+    // aqui fazer o fetch para localhost:3000/chat
+    // document.pageContents contém o arquivo PDF
+    // lembrar de transformar em uma string concatenada
     setTimeout(() => {
       const responses = [
         'Com base no documento, posso explicar que...',
@@ -47,7 +50,7 @@ const ChatPage = () => {
 
       const randomResponse =
         responses[Math.floor(Math.random() * responses.length)];
-      addAssistantMessage(randomResponse);
+      addAssistantMessage(randomResponse); // setar a resposta da API
       setIsProcessing(false);
     }, 1500);
   };

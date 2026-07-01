@@ -60,8 +60,6 @@ const HomePage = () => {
     sendDocumentToServer(document);
   });
 
-  // const contentString = document?.pageContents.map((data) => data.text).join('\n\n');
-
   React.useEffect(() => {
     if (document) {
       navigate('/chat', { state: { document } });

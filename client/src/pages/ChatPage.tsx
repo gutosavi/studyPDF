@@ -23,7 +23,6 @@ const ChatPage = () => {
   };
 
   const addAssistantMessage = (content: string) => {
-    // conectar com a API
     const newMessage: Message = {
       id: Date.now().toString(),
       role: 'assistant',
@@ -33,26 +32,30 @@ const ChatPage = () => {
     setMessages((prev) => [...prev, newMessage]);
   };
 
-  const handleSendMessage = (content: string) => {
-    addUserMessage(content); // aqui está o conteúdo do input
-    setIsProcessing(true);
+  const handleSendMessage = async (content: string) => {
+    try {
+      addUserMessage(content);
+      setIsProcessing(true);
 
-    // aqui fazer o fetch para localhost:3000/chat
-    // document.pageContents contém o arquivo PDF
-    // lembrar de transformar em uma string concatenada
-    setTimeout(() => {
-      const responses = [
-        'Com base no documento, posso explicar que...',
-        'De acordo com o conteúdo do PDF, a resposta é...',
-        'Encontrei essa informação no documento: ...',
-        'Deixe me consultar o documento para você. Aqui está o que encontrei...',
-      ];
+      const response = await fetch('http://localhost:3000/chat', {
+        method: 'POST',
+        headers: {
+          'Content-type': 'application/json',
+        },
+        body: JSON.stringify({
+          message: content,
+        }),
+      });
 
-      const randomResponse =
-        responses[Math.floor(Math.random() * responses.length)];
-      addAssistantMessage(randomResponse); // setar a resposta da API
+      if (!response.ok) throw new Error(`Erro: ${response.status}`);
+
+      const result = await response.json();
+      addAssistantMessage(result.reply);
+    } catch (error) {
+      console.error('Erro no chat', error);
+    } finally {
       setIsProcessing(false);
-    }, 1500);
+    }
   };
 
   return (

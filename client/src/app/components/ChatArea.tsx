@@ -1,12 +1,5 @@
 import { Bot, User } from 'lucide-react';
-import React from 'react';
-
-export interface Message {
-  id: string;
-  role: 'user' | 'assistant';
-  content: string;
-  timestamp: Date;
-}
+import type { Message } from '../../types/types';
 
 interface ChatAreaProps {
   messages: Message[];

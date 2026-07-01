@@ -2,16 +2,25 @@
 import { Request, Response } from 'express';
 
 interface UploadPayLoad {
-  pageNumber: number;
-  text: string;
+  fileName: string;
+  documentText: string;
 }
 
 const uploadController = (req: Request, res: Response) => {
-  console.log(req.body);
+  try {
+    const { fileName, documentText }: UploadPayLoad = req.body;
+    if (!fileName || !documentText) {
+      return res.status(400).json({ error: 'Texto extraído não recebido.' });
+    }
 
-  return res.status(200).json({
-    message: 'Upload recebido com sucesso.',
-  });
+    return res.status(200).json({
+      fileName,
+      documentText,
+    });
+  } catch (error) {
+    console.error('Erro ao receber texto.', error);
+    res.status(500).json({ error: 'Erro ao processar arquivo.' });
+  }
 };
 
 export default uploadController;

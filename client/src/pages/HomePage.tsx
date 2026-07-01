@@ -32,6 +32,34 @@ const HomePage = () => {
     });
   };
 
+  React.useEffect(() => {
+    const sendDocumentToServer = async (document: DocumentInfo | null) => {
+      if (!document) return;
+
+      const documentText = document.pageContents.map((p) => p.text).join('\n');
+
+      try {
+        const response = await fetch('http://localhost:3000/upload', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ fileName: document.name, documentText }),
+        });
+
+        if (!response.ok) {
+          throw new Error(`Erro na requisição ${response.status}`);
+        }
+
+        const data = await response.json();
+        console.log('Arquivo enviado ao backend', data);
+      } catch (error) {
+        console.error('Erro no upload', error);
+      }
+    };
+    sendDocumentToServer(document);
+  });
+
   // const contentString = document?.pageContents.map((data) => data.text).join('\n\n');
 
   React.useEffect(() => {

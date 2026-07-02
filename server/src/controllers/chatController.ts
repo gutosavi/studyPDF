@@ -16,7 +16,7 @@ async function chatController(req: Request, res: Response) {
     }
 
     const response = await genAi.models.generateContent({
-      model: 'gemini-flash-latest',
+      model: 'gemini-2.5-flash',
       contents: promptService(documentText, message),
     });
 

@@ -1,3 +1,4 @@
+import React from 'react';
 import { Bot, User } from 'lucide-react';
 import type { Message } from '../../types/types';
 
@@ -6,6 +7,16 @@ interface ChatAreaProps {
 }
 
 const ChatArea = ({ messages }: ChatAreaProps) => {
+  const messagesEndRef = React.useRef<HTMLDivElement | null>(null);
+
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  React.useEffect(() => {
+    scrollToBottom();
+  }, [messages]);
+
   if (messages.length === 0) {
     return (
       <div className="flex-1 flex items-center justify-center p-6">
@@ -63,6 +74,7 @@ const ChatArea = ({ messages }: ChatAreaProps) => {
           )}
         </div>
       ))}
+      <div ref={messagesEndRef} />
     </div>
   );
 };

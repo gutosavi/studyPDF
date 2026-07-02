@@ -44,6 +44,7 @@ export const useChat = () => {
   return {
     messages,
     isProcessing,
+    addAssistantMessage,
     handleSendMessage,
   };
 };

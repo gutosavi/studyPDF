@@ -1,5 +1,6 @@
 // req > validacao > chama o service > responde o cliente
 import { Request, Response } from 'express';
+import { setDocumentText } from '../services/textStore';
 
 interface UploadPayLoad {
   fileName: string;
@@ -12,6 +13,8 @@ const uploadController = (req: Request, res: Response) => {
     if (!fileName || !documentText) {
       return res.status(400).json({ error: 'Texto extraído não recebido.' });
     }
+
+    setDocumentText(documentText);
 
     return res.status(200).json({
       fileName,

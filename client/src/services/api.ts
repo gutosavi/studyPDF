@@ -20,4 +20,12 @@ export const apiService = {
     if (!response) throw new Error('Erro no chat.');
     return response.json();
   },
+
+  mockAPI: async () => {
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+
+    return {
+      reply: 'Resposta simulada.',
+    };
+  },
 };

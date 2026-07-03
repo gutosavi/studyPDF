@@ -1,5 +1,5 @@
 import React from 'react';
-import { Bot, User } from 'lucide-react';
+import { Bot, User, Ellipsis } from 'lucide-react';
 import type { Message } from '../../types/types';
 
 interface ChatAreaProps {
@@ -48,24 +48,30 @@ const ChatArea = ({ messages }: ChatAreaProps) => {
               <Bot className="w-5 h-5 text-blue-600" />
             </div>
           )}
-
           <div
             className={`max-w-2xl rounded-2xl px-4 py-3 ${message.role === 'user' ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-900'}`}
           >
-            <p className="text-sm leading-relaxed whitespace-pre-wrap">
-              {message.content}
-            </p>
-            <p
-              className={`
-              text-xs mt-1
-              ${message.role === 'user' ? 'text-blue-200' : 'text-gray-500'}
-            `}
-            >
-              {message.timestamp.toLocaleTimeString('pt-BR', {
-                hour: '2-digit',
-                minute: '2-digit',
-              })}
-            </p>
+            {message.role === 'assistant' && message.isLoading ? (
+              <p className="text-sm leading-relaxed whitespace-pre-wrap">
+                <Ellipsis className="w-5 h-5 text-gray-900 animate-pulse [animation-delay:-0.3s]" />
+              </p>
+            ) : (
+              <>
+                <p className="text-sm leading-relaxed whitespace-pre-wrap">
+                  {message.content}
+                </p>
+                <p
+                  className={`text-xs mt-1 ${
+                    message.role === 'user' ? 'text-blue-200' : 'text-gray-500'
+                  }`}
+                >
+                  {message.timestamp.toLocaleTimeString('pt-BR', {
+                    hour: '2-digit',
+                    minute: '2-digit',
+                  })}
+                </p>
+              </>
+            )}
           </div>
           {message.role === 'user' && (
             <div className="shrink-0 w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center">

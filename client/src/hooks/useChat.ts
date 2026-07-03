@@ -8,17 +8,19 @@ export const useChat = () => {
 
   const addUserMessage = (content: string) => {
     const newMessage: Message = {
-      id: Date.now().toString(),
+      id: crypto.randomUUID(),
       role: 'user',
       content,
       timestamp: new Date(),
     };
+
     setMessages((prev) => [...prev, newMessage]);
+    return newMessage.id;
   };
 
   const addAssistantMessage = (content: string, isLoading: boolean) => {
     const newMessage: Message = {
-      id: Date.now().toString(),
+      id: crypto.randomUUID(),
       role: 'assistant',
       content,
       timestamp: new Date(),
@@ -41,7 +43,8 @@ export const useChat = () => {
       setIsProcessing(true);
       const loadingMessageId = addAssistantMessage('', true);
 
-      const result = await apiService.sendMessage(content);
+      // mudar para apiService.sendMessage(content);
+      const result = await apiService.mockAPI();
 
       updateMessage(loadingMessageId, {
         content: result.reply,
@@ -54,9 +57,23 @@ export const useChat = () => {
     }
   };
 
+  const handleQuickAction = (action: string) => {
+    const actionMessages: Record<string, string> = {
+      summarize: 'Por favor, crie um resumo completo do documento.',
+      flashcards: 'Gere flashcards com os principais conceitos do documento.',
+      quiz: 'Crie um quiz de perguntas sobre o conteúdo do documento.',
+    };
+
+    const message = actionMessages[action];
+    if (message) {
+      handleSendMessage(message);
+    }
+  };
+
   return {
     messages,
     isProcessing,
     handleSendMessage,
+    handleQuickAction,
   };
 };

@@ -4,6 +4,7 @@ import Header from '../app/components/ui/Header';
 import SideBar from '../app/components/SideBar';
 import ChatArea from '../app/components/ChatArea';
 import MessageInput from '../app/components/MessageInput';
+import QuickActions from '../app/components/QuickActions';
 import { useChat } from '../hooks/useChat';
 
 const ChatPage = () => {
@@ -11,7 +12,8 @@ const ChatPage = () => {
   const location = useLocation();
   const document = location.state?.document;
 
-  const { messages, isProcessing, handleSendMessage } = useChat();
+  const { messages, isProcessing, handleSendMessage, handleQuickAction } =
+    useChat();
 
   return (
     <section className="flex h-screen bg-white overflow-hidden">
@@ -37,6 +39,8 @@ const ChatPage = () => {
         <Header onClick={() => setShowSideBar(true)} />
 
         <ChatArea messages={messages} />
+
+        <QuickActions onAction={handleQuickAction} />
 
         <MessageInput onSend={handleSendMessage} disabled={isProcessing} />
       </div>

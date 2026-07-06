@@ -1,6 +1,7 @@
 import React from 'react';
 import extractPdfData from '../features/pdf/extractPdfData';
 import { apiService } from '../services/api';
+import { useChatContext } from '../context/ChatContext';
 
 interface DocumentInfo {
   name: string;
@@ -15,6 +16,7 @@ interface DocumentInfo {
 
 export const useUploadFile = () => {
   const [document, setDocument] = React.useState<DocumentInfo | null>(null);
+  const { addAssistantMessage } = useChatContext();
 
   const handleFileUpload = async (file: File) => {
     const fileSizeInMB = (file.size / (1024 * 1024)).toFixed(2);
@@ -28,6 +30,11 @@ export const useUploadFile = () => {
       countPage: pdfData.totalPages,
       pageContents: pdfData.pagesData,
     });
+
+    setTimeout(() => {
+      const message = `Olá! Analisei o documento "${file.name}". Estou pronto para responder suas perguntas sobre o conteúdo.`;
+      addAssistantMessage(message, false);
+    }, 1000);
   };
 
   const sendDocumentToServer = async (document: DocumentInfo | null) => {

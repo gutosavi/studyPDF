@@ -6,14 +6,14 @@ import ChatArea from '../app/components/ChatArea';
 import MessageInput from '../app/components/MessageInput';
 import QuickActions from '../app/components/QuickActions';
 import { useChat } from '../hooks/useChat';
+import { useChatContext } from '../context/ChatContext';
 
 const ChatPage = () => {
   const [showSideBar, setShowSideBar] = React.useState(false);
+  const { messages } = useChatContext();
+  const { isProcessing, handleSendMessage, handleQuickAction } = useChat();
   const location = useLocation();
   const document = location.state?.document;
-
-  const { messages, isProcessing, handleSendMessage, handleQuickAction } =
-    useChat();
 
   return (
     <section className="flex h-screen bg-white overflow-hidden">

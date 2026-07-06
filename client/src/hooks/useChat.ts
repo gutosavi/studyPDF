@@ -1,10 +1,11 @@
 import React from 'react';
 import type { Message } from '../types/types';
 import { apiService } from '../services/api';
+import { useChatContext } from '../context/ChatContext';
 
 export const useChat = () => {
   const [isProcessing, setIsProcessing] = React.useState(false);
-  const [messages, setMessages] = React.useState<Message[]>([]);
+  const { messages, setMessages, error, setError } = useChatContext();
 
   const addUserMessage = (content: string) => {
     const newMessage: Message = {
@@ -50,8 +51,10 @@ export const useChat = () => {
         content: result.reply,
         isLoading: false,
       });
+      setError(null);
     } catch (error) {
       console.error('Erro no chat', error);
+      setError(error instanceof Error ? error.message : 'Erro desconhecido');
     } finally {
       setIsProcessing(false);
     }
@@ -73,6 +76,7 @@ export const useChat = () => {
   return {
     messages,
     isProcessing,
+    error,
     handleSendMessage,
     handleQuickAction,
   };

@@ -1,42 +1,11 @@
 import React from 'react';
-import type { Message } from '../types/types';
 import { apiService } from '../services/api';
 import { useChatContext } from '../context/ChatContext';
 
 export const useChat = () => {
   const [isProcessing, setIsProcessing] = React.useState(false);
-  const { messages, setMessages, error, setError } = useChatContext();
-
-  const addUserMessage = (content: string) => {
-    const newMessage: Message = {
-      id: crypto.randomUUID(),
-      role: 'user',
-      content,
-      timestamp: new Date(),
-    };
-
-    setMessages((prev) => [...prev, newMessage]);
-    return newMessage.id;
-  };
-
-  const addAssistantMessage = (content: string, isLoading: boolean) => {
-    const newMessage: Message = {
-      id: crypto.randomUUID(),
-      role: 'assistant',
-      content,
-      timestamp: new Date(),
-      isLoading,
-    };
-
-    setMessages((prev) => [...prev, newMessage]);
-    return newMessage.id;
-  };
-
-  const updateMessage = (id: string, updates: Partial<Message>) => {
-    setMessages((prevMessages) =>
-      prevMessages.map((msg) => (msg.id === id ? { ...msg, ...updates } : msg)),
-    );
-  };
+  const { setError, addUserMessage, addAssistantMessage, updateMessage } =
+    useChatContext();
 
   const handleSendMessage = async (content: string) => {
     try {
@@ -74,9 +43,7 @@ export const useChat = () => {
   };
 
   return {
-    messages,
     isProcessing,
-    error,
     handleSendMessage,
     handleQuickAction,
   };

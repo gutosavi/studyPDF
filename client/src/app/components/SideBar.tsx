@@ -1,5 +1,6 @@
 import { Calendar, FileText, FileType, X } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import { useChatContext } from '../../context/ChatContext';
 
 interface SideBarProps {
   fileName: string;
@@ -19,6 +20,12 @@ const SideBar = ({
   onClose,
 }: SideBarProps) => {
   const navigate = useNavigate();
+  const { clearChat } = useChatContext();
+
+  const handleClearChat = () => {
+    clearChat();
+    navigate('/');
+  };
 
   return (
     <aside
@@ -85,7 +92,7 @@ const SideBar = ({
 
       <div className="p-6 border-t border-gray-200">
         <button
-          onClick={() => navigate('/')}
+          onClick={handleClearChat}
           className="w-full px-4 py-2.5 text-sm font-medium text-red-600 hover:bg-red-50 rounded-lg transition-colors"
         >
           Remover documento

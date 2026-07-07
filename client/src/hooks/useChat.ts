@@ -4,7 +4,7 @@ import { useChatContext } from '../context/ChatContext';
 
 export const useChat = () => {
   const [isProcessing, setIsProcessing] = React.useState(false);
-  const { setError, addUserMessage, addAssistantMessage, updateMessage } =
+  const { addUserMessage, addAssistantMessage, updateMessage, displayError } =
     useChatContext();
 
   const handleSendMessage = async (content: string) => {
@@ -20,10 +20,12 @@ export const useChat = () => {
         content: result.reply,
         isLoading: false,
       });
-      setError(null);
+      displayError(null);
     } catch (error) {
       console.error('Erro no chat', error);
-      setError(error instanceof Error ? error.message : 'Erro desconhecido');
+      displayError(
+        error instanceof Error ? error.message : 'Erro desconhecido',
+      );
     } finally {
       setIsProcessing(false);
     }

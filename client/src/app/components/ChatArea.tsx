@@ -1,6 +1,7 @@
 import React from 'react';
 import { Bot, User, Ellipsis } from 'lucide-react';
 import type { Message } from '../../types/types';
+import { useChatContext } from '../../context/ChatContext';
 
 interface ChatAreaProps {
   messages: Message[];
@@ -8,6 +9,7 @@ interface ChatAreaProps {
 
 const ChatArea = ({ messages }: ChatAreaProps) => {
   const messagesEndRef = React.useRef<HTMLDivElement | null>(null);
+  const { error } = useChatContext();
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -37,51 +39,62 @@ const ChatArea = ({ messages }: ChatAreaProps) => {
   }
 
   return (
-    <div className="flex-1 overflow-y-auto p-6 space-y-6">
-      {messages.map((message) => (
-        <div
-          key={message.id}
-          className={`flex gap-4 ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}
-        >
-          {message.role === 'assistant' && (
-            <div className="shrink-0 w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
-              <Bot className="w-5 h-5 text-blue-600" />
-            </div>
-          )}
+    <>
+      <section className="flex-1 overflow-y-auto p-6 space-y-6">
+        {messages.map((message) => (
           <div
-            className={`max-w-2xl rounded-2xl px-4 py-3 ${message.role === 'user' ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-900'}`}
+            key={message.id}
+            className={`flex gap-4 ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}
           >
-            {message.role === 'assistant' && message.isLoading ? (
-              <p className="text-sm leading-relaxed whitespace-pre-wrap">
-                <Ellipsis className="w-5 h-5 text-gray-900 animate-pulse [animation-delay:-0.3s]" />
-              </p>
-            ) : (
-              <>
+            {message.role === 'assistant' && (
+              <div className="shrink-0 w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
+                <Bot className="w-5 h-5 text-blue-600" />
+              </div>
+            )}
+            <div
+              className={`max-w-2xl rounded-2xl px-4 py-3 ${message.role === 'user' ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-900'}`}
+            >
+              {message.role === 'assistant' && message.isLoading ? (
                 <p className="text-sm leading-relaxed whitespace-pre-wrap">
-                  {message.content}
+                  <Ellipsis className="w-5 h-5 text-gray-900 animate-pulse [animation-delay:-0.3s]" />
                 </p>
-                <p
-                  className={`text-xs mt-1 ${
-                    message.role === 'user' ? 'text-blue-200' : 'text-gray-500'
-                  }`}
-                >
-                  {message.timestamp.toLocaleTimeString('pt-BR', {
-                    hour: '2-digit',
-                    minute: '2-digit',
-                  })}
-                </p>
-              </>
+              ) : (
+                <>
+                  <p className="text-sm leading-relaxed whitespace-pre-wrap">
+                    {message.content}
+                  </p>
+                  <p
+                    className={`text-xs mt-1 ${
+                      message.role === 'user'
+                        ? 'text-blue-200'
+                        : 'text-gray-500'
+                    }`}
+                  >
+                    {message.timestamp.toLocaleTimeString('pt-BR', {
+                      hour: '2-digit',
+                      minute: '2-digit',
+                    })}
+                  </p>
+                </>
+              )}
+            </div>
+            {message.role === 'user' && (
+              <div className="shrink-0 w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center">
+                <User className="w-5 h-5 text-gray-600" />
+              </div>
             )}
           </div>
-          {message.role === 'user' && (
-            <div className="shrink-0 w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center">
-              <User className="w-5 h-5 text-gray-600" />
-            </div>
-          )}
-        </div>
-      ))}
-      <div ref={messagesEndRef} />
-    </div>
+        ))}
+        <div ref={messagesEndRef} />
+      </section>
+      <section className="flex items-center justify-center">
+        {error && (
+          <div className="flex justify-center items-center h-8 w-[50%] m-1.5 p-6 text-sm font-semibold text-gray-900 bg-gray-50 rounded-full leading-relaxed whitespace-pre-wrap transition-all duration-300 ease-out animate-in fade-in slide-in-from-bottom-2">
+            {error}
+          </div>
+        )}
+      </section>
+    </>
   );
 };
 

@@ -11,10 +11,10 @@ Aplicação fullstack que permite fazer upload de um PDF e interagir com ele via
 
 ---
 
-## 📸 Demonstração - em produção
+## 📸 Demonstração
 
 <p align="center">
-  <img src="" alt="Demonstração do StudyPDF AI" width="100%">
+  <img src="/client/src/assets/studyPDF-AI-animation.gif" alt="Demonstração do StudyPDF AI" width="100%">
 </p>
 
 ---

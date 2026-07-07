@@ -6,6 +6,16 @@ export const ChatProvider = ({ children }: { children: React.ReactNode }) => {
   const [messages, setMessages] = React.useState<Message[]>([]);
   const [error, setError] = React.useState<string | null>(null);
 
+  const displayError = (message: string | null) => {
+    if (message) setError(message);
+
+    const timer = setTimeout(() => {
+      setError(null);
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  };
+
   const clearChat = () => {
     setMessages([]);
   };
@@ -51,6 +61,7 @@ export const ChatProvider = ({ children }: { children: React.ReactNode }) => {
         addUserMessage,
         addAssistantMessage,
         updateMessage,
+        displayError,
       }}
     >
       {children}

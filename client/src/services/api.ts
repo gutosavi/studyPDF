@@ -17,12 +17,25 @@ export const apiService = {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ message }),
     });
-    if (!response) throw new Error('Erro no chat.');
+
+    if (!response.ok) {
+      throw new Error(`Erro ao enviar mensagem: ${response.status}`);
+    }
+
     return response.json();
   },
 
   mockAPI: async () => {
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+    await new Promise((resolve, reject) => {
+      const shouldFail = false;
+      setTimeout(() => {
+        if (shouldFail) {
+          reject(new Error('Operação falhou.'));
+        } else {
+          resolve({ reply: 'Resposta simulada.' });
+        }
+      }, 1000);
+    });
 
     return {
       reply: 'Resposta simulada.',

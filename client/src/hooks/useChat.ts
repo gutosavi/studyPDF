@@ -13,8 +13,7 @@ export const useChat = () => {
       setIsProcessing(true);
       const loadingMessageId = addAssistantMessage('', true);
 
-      // mudar para apiService.sendMessage(content);
-      const result = await apiService.mockAPI();
+      const result = await apiService.sendMessage(content);
 
       updateMessage(loadingMessageId, {
         content: result.reply,

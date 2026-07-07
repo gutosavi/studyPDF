@@ -51,10 +51,13 @@ studyPDF/
 ├── client/          # React + TypeScript (frontend)
 │   └── src/
 │       ├── app/components/
+│       ├── context/
 │       ├── features/
 │       ├── hooks/
 │       ├── pages/
-│       └── routes/
+│       ├── routes/
+│       ├── services/
+│       └── types/
 └── server/          # Node.js + Express (backend)
     └── src/
         ├── controllers/

@@ -5,15 +5,12 @@ pdfjsLib.GlobalWorkerOptions.workerSrc = pdfWorker;
 
 export default async function extractPdfData(file: File) {
   try {
-    alert('1. Lendo arquivo');
     const arrayBuffer = await file.arrayBuffer();
 
-    alert('2. Criando loadingTask');
     const loadingTask = pdfjsLib.getDocument({
       data: new Uint8Array(arrayBuffer),
     });
 
-    alert('3. Abrindo PDF');
     const pdfDocument = await loadingTask.promise;
     const totalPages = pdfDocument.numPages;
 
@@ -24,22 +21,30 @@ export default async function extractPdfData(file: File) {
       const page = await pdfDocument.getPage(pageNumber);
       const textContent = await page.getTextContent();
 
-      const pageText = textContent.items
-        .map((item) => {
-          if ('str' in item) {
-            return item.str;
-          }
-          return '';
-        })
-        .join(' ');
+      alert(`Quantidade de itens: ${textContent.items.length}`);
+      let pageText = '';
+
+      for (const item of textContent.items) {
+        if ('str' in item) {
+          pageText += item.str + ' ';
+        }
+      }
+      // const pageText = textContent.items
+      //   .map((item) => {
+      //     if ('str' in item) {
+      //       return item.str;
+      //     }
+      //     return '';
+      //   })
+      //   .join(' ');
+
+      alert(`É array: ${Array.isArray(textContent.items)}`);
 
       return {
         pageNumber,
         text: pageText,
       };
     });
-
-    alert('4. PDF aberto');
 
     const pagesData = await Promise.all(pagePromises);
 

@@ -19,11 +19,8 @@ export default async function extractPdfData(file: File) {
       (_, i) => i + 1,
     ).map(async (pageNumber) => {
       try {
-        alert('Tentando obter a página');
         const page = await pdfDocument.getPage(pageNumber);
-        alert('Página obtida: ' + page);
         const textContent = await page.getTextContent();
-        alert('textContent ok: ' + JSON.stringify(Object.keys(textContent)));
 
         const pageText = textContent.items
           .map((item) => {
@@ -43,7 +40,10 @@ export default async function extractPdfData(file: File) {
       }
     });
 
-    const pagesData = await Promise.all(pagePromises);
+    const pagesData = (await Promise.all(pagePromises)).filter(
+      (page): page is { pageNumber: number; text: string } =>
+        page !== undefined,
+    );
 
     return {
       totalPages,

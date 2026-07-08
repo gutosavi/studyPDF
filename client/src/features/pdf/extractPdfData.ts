@@ -1,24 +1,22 @@
-import * as pdfjsLib from 'pdfjs-dist';
-import pdfWorker from 'pdfjs-dist/build/pdf.worker.mjs?url';
+// import * as pdfjsLib from 'pdfjs-dist';
+// import pdfWorker from 'pdfjs-dist/build/pdf.worker.mjs?url';
+
+// pdfjsLib.GlobalWorkerOptions.workerSrc = pdfWorker;
+import * as pdfjsLib from 'pdfjs-dist/legacy/build/pdf.mjs';
+import pdfWorker from 'pdfjs-dist/legacy/build/pdf.worker.mjs?url';
 
 pdfjsLib.GlobalWorkerOptions.workerSrc = pdfWorker;
 
 export default async function extractPdfData(file: File) {
   try {
-    alert('1');
     const arrayBuffer = await file.arrayBuffer();
 
-    alert('2');
     const loadingTask = pdfjsLib.getDocument({
       data: new Uint8Array(arrayBuffer),
     });
 
-    alert('3');
-
     const pdfDocument = await loadingTask.promise;
-    alert('4');
     const totalPages = pdfDocument.numPages;
-    alert(`Páginas: ${totalPages}`);
 
     const pagePromises = Array.from(
       { length: totalPages },
@@ -28,6 +26,7 @@ export default async function extractPdfData(file: File) {
       alert('5');
       const textContent = await page.getTextContent();
       alert('6');
+
       const pageText = textContent.items
         .map((item) => {
           if ('str' in item) {
@@ -36,8 +35,6 @@ export default async function extractPdfData(file: File) {
           return '';
         })
         .join(' ');
-
-      alert(`Items: ${textContent.items.length}`);
 
       return {
         pageNumber,

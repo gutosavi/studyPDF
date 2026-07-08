@@ -1,5 +1,4 @@
 import * as pdfjsLib from 'pdfjs-dist';
-// import pdfWorker from 'pdfjs-dist/build/pdf.worker.mjs?url';
 import pdfWorker from 'pdfjs-dist/build/pdf.worker.min.mjs?url';
 
 pdfjsLib.GlobalWorkerOptions.workerSrc = pdfWorker;
@@ -37,7 +36,7 @@ export default async function extractPdfData(file: File) {
           text: pageText,
         };
       } catch (error) {
-        alert('Erro: ' + String(error));
+        console.error(`Erro ao extrair página ${pageNumber}:`, error);
       }
     });
 

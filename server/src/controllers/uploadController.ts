@@ -1,6 +1,6 @@
 // req > validacao > chama o service > responde o cliente
 import { Request, Response } from 'express';
-import { setDocumentText } from '../services/textStore';
+import { setDocumentText } from '../services/textStore.js';
 
 interface UploadPayLoad {
   fileName: string;

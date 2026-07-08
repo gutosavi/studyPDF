@@ -1,8 +1,8 @@
 import 'dotenv/config';
 import { Request, Response } from 'express';
 import { GoogleGenAI } from '@google/genai';
-import { documentText } from '../services/textStore';
-import promptService from '../services/promptService';
+import { documentText } from '../services/textStore.js';
+import promptService from '../services/promptService.js';
 
 const genAi = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
 

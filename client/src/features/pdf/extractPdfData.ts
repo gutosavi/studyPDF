@@ -5,40 +5,39 @@ pdfjsLib.GlobalWorkerOptions.workerSrc = pdfWorker;
 
 export default async function extractPdfData(file: File) {
   try {
+    alert('1');
     const arrayBuffer = await file.arrayBuffer();
 
+    alert('2');
     const loadingTask = pdfjsLib.getDocument({
       data: new Uint8Array(arrayBuffer),
     });
 
+    alert('3');
+
     const pdfDocument = await loadingTask.promise;
+    alert('4');
     const totalPages = pdfDocument.numPages;
+    alert(`Páginas: ${totalPages}`);
 
     const pagePromises = Array.from(
       { length: totalPages },
       (_, i) => i + 1,
     ).map(async (pageNumber) => {
       const page = await pdfDocument.getPage(pageNumber);
+      alert('5');
       const textContent = await page.getTextContent();
+      alert('6');
+      const pageText = textContent.items
+        .map((item) => {
+          if ('str' in item) {
+            return item.str;
+          }
+          return '';
+        })
+        .join(' ');
 
-      alert(`Quantidade de itens: ${textContent.items.length}`);
-      let pageText = '';
-
-      for (const item of textContent.items) {
-        if ('str' in item) {
-          pageText += item.str + ' ';
-        }
-      }
-      // const pageText = textContent.items
-      //   .map((item) => {
-      //     if ('str' in item) {
-      //       return item.str;
-      //     }
-      //     return '';
-      //   })
-      //   .join(' ');
-
-      alert(`É array: ${Array.isArray(textContent.items)}`);
+      alert(`Items: ${textContent.items.length}`);
 
       return {
         pageNumber,

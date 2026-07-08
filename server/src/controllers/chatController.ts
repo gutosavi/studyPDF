@@ -8,11 +8,14 @@ const genAi = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
 
 async function chatController(req: Request, res: Response) {
   try {
-    if (!documentText) return;
-
     const { message } = req.body;
+
     if (!message) {
       return res.status(400).json({ error: 'Mensagem não fornecida' });
+    }
+
+    if (!documentText) {
+      return res.status(400).json({ error: 'Nenhum documento carregado.' });
     }
 
     const response = await genAi.models.generateContent({

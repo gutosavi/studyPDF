@@ -1,8 +1,8 @@
-const BASE_URL = 'http://localhost:3000';
+const API_URL = import.meta.env.VITE_API_URL;
 
 export const apiService = {
   uploadPDF: async (fileName: string, documentText: string) => {
-    const response = await fetch(`${BASE_URL}/upload`, {
+    const response = await fetch(`${API_URL}/upload`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ fileName, documentText }),
@@ -12,7 +12,7 @@ export const apiService = {
   },
 
   sendMessage: async (message: string) => {
-    const response = await fetch(`${BASE_URL}/chat`, {
+    const response = await fetch(`${API_URL}/chat`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ message }),

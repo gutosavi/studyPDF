@@ -5,15 +5,14 @@ import uploadRouter from './routes/upload.js';
 import chatRouter from './routes/chat.js';
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
-app.use(cors());
+app.use(
+  cors({
+    origin: 'https://studypdf-ai.vercel.app',
+  }),
+);
 app.use(express.json());
-
-app.use((req, res, next) => {
-  console.log(`${req.method} ${req.url}`);
-  next();
-});
 
 app.use(uploadRouter);
 app.use(chatRouter);

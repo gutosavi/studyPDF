@@ -18,10 +18,13 @@ export default async function extractPdfData(file: File) {
       { length: totalPages },
       (_, i) => i + 1,
     ).map(async (pageNumber) => {
-      const page = await pdfDocument.getPage(pageNumber);
       try {
+        alert('Tentando obter a página');
+        const page = await pdfDocument.getPage(pageNumber);
+        alert('Página obtida: ' + page);
         const textContent = await page.getTextContent();
         alert('textContent ok: ' + JSON.stringify(Object.keys(textContent)));
+
         const pageText = textContent.items
           .map((item) => {
             if ('str' in item) {
@@ -35,8 +38,8 @@ export default async function extractPdfData(file: File) {
           pageNumber,
           text: pageText,
         };
-      } catch (err) {
-        alert('Erro no getTextContent: ' + String(err));
+      } catch (error) {
+        alert('Erro: ' + String(error));
       }
     });
 

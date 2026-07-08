@@ -7,7 +7,16 @@
 
 Aplicação fullstack que permite fazer upload de um PDF e interagir com ele via chat inteligente, utilizando a API do Google Gemini para gerar resumos, flashcards, quizzes e responder perguntas sobre o conteúdo do documento.
 
-🔗 **[Link para o Deploy do Projeto Aqui]()**
+---
+
+## 🌐 Deploy
+
+A aplicação está disponível online:
+
+- **Frontend:** https://studypdf-ai.vercel.app
+- **Backend API:** https://studypdf-api.onrender.com
+
+> O backend funciona como uma API REST responsável pela comunicação com o Google Gemini e processamento das requisições do chat.
 
 ---
 
@@ -130,7 +139,6 @@ studyPDF/
 ├── client/
 │   └── src/
 │       ├── app/components/
-│       ├── assets/
 │       ├── context/
 │       ├── features/
 │       ├── hooks/

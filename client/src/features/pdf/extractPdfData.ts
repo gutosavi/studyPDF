@@ -4,17 +4,23 @@ import pdfWorker from 'pdfjs-dist/build/pdf.worker.mjs?url';
 pdfjsLib.GlobalWorkerOptions.workerSrc = pdfWorker;
 
 export default async function extractPdfData(file: File) {
-  const arrayBuffer = await file.arrayBuffer();
+  try {
+    alert('1. Lendo arquivo');
+    const arrayBuffer = await file.arrayBuffer();
 
-  const loadingTask = pdfjsLib.getDocument({
-    data: new Uint8Array(arrayBuffer),
-  });
+    alert('2. Criando loadingTask');
+    const loadingTask = pdfjsLib.getDocument({
+      data: new Uint8Array(arrayBuffer),
+    });
 
-  const pdfDocument = await loadingTask.promise;
-  const totalPages = pdfDocument.numPages;
+    alert('3. Abrindo PDF');
+    const pdfDocument = await loadingTask.promise;
+    const totalPages = pdfDocument.numPages;
 
-  const pagePromises = Array.from({ length: totalPages }, (_, i) => i + 1).map(
-    async (pageNumber) => {
+    const pagePromises = Array.from(
+      { length: totalPages },
+      (_, i) => i + 1,
+    ).map(async (pageNumber) => {
       const page = await pdfDocument.getPage(pageNumber);
       const textContent = await page.getTextContent();
 
@@ -31,13 +37,19 @@ export default async function extractPdfData(file: File) {
         pageNumber,
         text: pageText,
       };
-    },
-  );
+    });
 
-  const pagesData = await Promise.all(pagePromises);
+    alert('4. PDF aberto');
 
-  return {
-    totalPages,
-    pagesData,
-  };
+    const pagesData = await Promise.all(pagePromises);
+
+    return {
+      totalPages,
+      pagesData,
+    };
+  } catch (error) {
+    console.log(error);
+    alert(error instanceof Error ? error.message : 'Erro ao abrir PDF.');
+    throw error;
+  }
 }

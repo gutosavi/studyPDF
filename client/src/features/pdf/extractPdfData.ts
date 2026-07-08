@@ -19,23 +19,25 @@ export default async function extractPdfData(file: File) {
       (_, i) => i + 1,
     ).map(async (pageNumber) => {
       const page = await pdfDocument.getPage(pageNumber);
-      const textContent = await page.getTextContent();
-      alert(`textContent: ${textContent}`);
-      alert(`items: ${textContent?.items}`);
+      try {
+        const textContent = await page.getTextContent();
+        alert('textContent ok: ' + JSON.stringify(Object.keys(textContent)));
+        const pageText = textContent.items
+          .map((item) => {
+            if ('str' in item) {
+              return item.str;
+            }
+            return '';
+          })
+          .join(' ');
 
-      const pageText = textContent.items
-        .map((item) => {
-          if ('str' in item) {
-            return item.str;
-          }
-          return '';
-        })
-        .join(' ');
-
-      return {
-        pageNumber,
-        text: pageText,
-      };
+        return {
+          pageNumber,
+          text: pageText,
+        };
+      } catch (err) {
+        alert('Erro no getTextContent: ' + String(err));
+      }
     });
 
     const pagesData = await Promise.all(pagePromises);

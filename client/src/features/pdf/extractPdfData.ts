@@ -1,9 +1,5 @@
-// import * as pdfjsLib from 'pdfjs-dist';
-// import pdfWorker from 'pdfjs-dist/build/pdf.worker.mjs?url';
-
-// pdfjsLib.GlobalWorkerOptions.workerSrc = pdfWorker;
-import * as pdfjsLib from 'pdfjs-dist/legacy/build/pdf.mjs';
-import pdfWorker from 'pdfjs-dist/legacy/build/pdf.worker.mjs?url';
+import * as pdfjsLib from 'pdfjs-dist';
+import pdfWorker from 'pdfjs-dist/build/pdf.worker.mjs?url';
 
 pdfjsLib.GlobalWorkerOptions.workerSrc = pdfWorker;
 
@@ -23,9 +19,9 @@ export default async function extractPdfData(file: File) {
       (_, i) => i + 1,
     ).map(async (pageNumber) => {
       const page = await pdfDocument.getPage(pageNumber);
-      alert('5');
       const textContent = await page.getTextContent();
-      alert('6');
+      alert(`textContent: ${textContent}`);
+      alert(`items: ${textContent?.items}`);
 
       const pageText = textContent.items
         .map((item) => {
@@ -50,7 +46,6 @@ export default async function extractPdfData(file: File) {
     };
   } catch (error) {
     console.log(error);
-    alert(error instanceof Error ? error.message : 'Erro ao abrir PDF.');
     throw error;
   }
 }

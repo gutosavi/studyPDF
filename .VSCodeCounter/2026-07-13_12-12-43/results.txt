@@ -1,0 +1,55 @@
+Date : 2026-07-13 12:12:43
+Directory : d:\Projetos\studyPDF\server
+Total : 17 files,  2898 codes, 1 comments, 42 blanks, all 2941 lines
+
+Languages
++--------------------+------------+------------+------------+------------+------------+
+| language           | files      | code       | comment    | blank      | total      |
++--------------------+------------+------------+------------+------------+------------+
+| JSON               |          2 |      2,688 |          0 |          2 |      2,690 |
+| TypeScript         |          7 |        103 |          1 |         32 |        136 |
+| JavaScript         |          7 |         94 |          0 |          7 |        101 |
+| JSON with Comments |          1 |         13 |          0 |          1 |         14 |
++--------------------+------------+------------+------------+------------+------------+
+
+Directories
++------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                             | files      | code       | comment    | blank      | total      |
++------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                |         17 |      2,898 |          1 |         42 |      2,941 |
+| . (Files)                                                        |          3 |      2,701 |          0 |          3 |      2,704 |
+| dist                                                             |          7 |         94 |          0 |          7 |        101 |
+| dist (Files)                                                     |          1 |         14 |          0 |          1 |         15 |
+| dist\controllers                                                 |          2 |         44 |          0 |          2 |         46 |
+| dist\routes                                                      |          2 |         10 |          0 |          2 |         12 |
+| dist\services                                                    |          2 |         26 |          0 |          2 |         28 |
+| src                                                              |          7 |        103 |          1 |         32 |        136 |
+| src (Files)                                                      |          1 |         18 |          0 |          5 |         23 |
+| src\controllers                                                  |          2 |         49 |          1 |         14 |         64 |
+| src\routes                                                       |          2 |         10 |          0 |         10 |         20 |
+| src\services                                                     |          2 |         26 |          0 |          3 |         29 |
++------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++------------------------------------------------------------------+--------------------+------------+------------+------------+------------+
+| filename                                                         | language           | code       | comment    | blank      | total      |
++------------------------------------------------------------------+--------------------+------------+------------+------------+------------+
+| d:\Projetos\studyPDF\server\dist\controllers\chatController.js   | JavaScript         |         25 |          0 |          1 |         26 |
+| d:\Projetos\studyPDF\server\dist\controllers\uploadController.js | JavaScript         |         19 |          0 |          1 |         20 |
+| d:\Projetos\studyPDF\server\dist\index.js                        | JavaScript         |         14 |          0 |          1 |         15 |
+| d:\Projetos\studyPDF\server\dist\routes\chat.js                  | JavaScript         |          5 |          0 |          1 |          6 |
+| d:\Projetos\studyPDF\server\dist\routes\upload.js                | JavaScript         |          5 |          0 |          1 |          6 |
+| d:\Projetos\studyPDF\server\dist\services\promptService.js       | JavaScript         |         22 |          0 |          1 |         23 |
+| d:\Projetos\studyPDF\server\dist\services\textStore.js           | JavaScript         |          4 |          0 |          1 |          5 |
+| d:\Projetos\studyPDF\server\package-lock.json                    | JSON               |      2,656 |          0 |          1 |      2,657 |
+| d:\Projetos\studyPDF\server\package.json                         | JSON               |         32 |          0 |          1 |         33 |
+| d:\Projetos\studyPDF\server\src\controllers\chatController.ts    | TypeScript         |         26 |          0 |          8 |         34 |
+| d:\Projetos\studyPDF\server\src\controllers\uploadController.ts  | TypeScript         |         23 |          1 |          6 |         30 |
+| d:\Projetos\studyPDF\server\src\index.ts                         | TypeScript         |         18 |          0 |          5 |         23 |
+| d:\Projetos\studyPDF\server\src\routes\chat.ts                   | TypeScript         |          5 |          0 |          5 |         10 |
+| d:\Projetos\studyPDF\server\src\routes\upload.ts                 | TypeScript         |          5 |          0 |          5 |         10 |
+| d:\Projetos\studyPDF\server\src\services\promptService.ts        | TypeScript         |         22 |          0 |          1 |         23 |
+| d:\Projetos\studyPDF\server\src\services\textStore.ts            | TypeScript         |          4 |          0 |          2 |          6 |
+| d:\Projetos\studyPDF\server\tsconfig.json                        | JSON with Comments |         13 |          0 |          1 |         14 |
+| Total                                                            |                    |      2,898 |          1 |         42 |      2,941 |
++------------------------------------------------------------------+--------------------+------------+------------+------------+------------+

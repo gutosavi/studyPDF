@@ -1,0 +1,19 @@
+"filename", "language", "JSON with Comments", "TypeScript", "JSON", "JavaScript", "comment", "blank", "total"
+"d:\Projetos\studyPDF\server\dist\controllers\chatController.js", "JavaScript", 0, 0, 0, 25, 0, 1, 26
+"d:\Projetos\studyPDF\server\dist\controllers\uploadController.js", "JavaScript", 0, 0, 0, 19, 0, 1, 20
+"d:\Projetos\studyPDF\server\dist\index.js", "JavaScript", 0, 0, 0, 14, 0, 1, 15
+"d:\Projetos\studyPDF\server\dist\routes\chat.js", "JavaScript", 0, 0, 0, 5, 0, 1, 6
+"d:\Projetos\studyPDF\server\dist\routes\upload.js", "JavaScript", 0, 0, 0, 5, 0, 1, 6
+"d:\Projetos\studyPDF\server\dist\services\promptService.js", "JavaScript", 0, 0, 0, 22, 0, 1, 23
+"d:\Projetos\studyPDF\server\dist\services\textStore.js", "JavaScript", 0, 0, 0, 4, 0, 1, 5
+"d:\Projetos\studyPDF\server\package-lock.json", "JSON", 0, 0, 2656, 0, 0, 1, 2657
+"d:\Projetos\studyPDF\server\package.json", "JSON", 0, 0, 32, 0, 0, 1, 33
+"d:\Projetos\studyPDF\server\src\controllers\chatController.ts", "TypeScript", 0, 26, 0, 0, 0, 8, 34
+"d:\Projetos\studyPDF\server\src\controllers\uploadController.ts", "TypeScript", 0, 23, 0, 0, 1, 6, 30
+"d:\Projetos\studyPDF\server\src\index.ts", "TypeScript", 0, 18, 0, 0, 0, 5, 23
+"d:\Projetos\studyPDF\server\src\routes\chat.ts", "TypeScript", 0, 5, 0, 0, 0, 5, 10
+"d:\Projetos\studyPDF\server\src\routes\upload.ts", "TypeScript", 0, 5, 0, 0, 0, 5, 10
+"d:\Projetos\studyPDF\server\src\services\promptService.ts", "TypeScript", 0, 22, 0, 0, 0, 1, 23
+"d:\Projetos\studyPDF\server\src\services\textStore.ts", "TypeScript", 0, 4, 0, 0, 0, 2, 6
+"d:\Projetos\studyPDF\server\tsconfig.json", "JSON with Comments", 13, 0, 0, 0, 0, 1, 14
+"Total", "-", 13, 103, 2688, 94, 1, 42, 2941

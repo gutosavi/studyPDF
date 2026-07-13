@@ -1,0 +1,48 @@
+"filename", "language", "JSON with Comments", "TypeScript", "JSON", "JavaScript", "TypeScript JSX", "PostCSS", "XML", "HTML", "comment", "blank", "total"
+"d:\Projetos\studyPDF\client\eslint.config.js", "JavaScript", 0, 0, 0, -21, 0, 0, 0, 0, 0, -2, -23
+"d:\Projetos\studyPDF\client\index.html", "HTML", 0, 0, 0, 0, 0, 0, 0, -17, 0, -3, -20
+"d:\Projetos\studyPDF\client\package-lock.json", "JSON", 0, 0, -3835, 0, 0, 0, 0, 0, 0, -1, -3836
+"d:\Projetos\studyPDF\client\package.json", "JSON", 0, 0, -35, 0, 0, 0, 0, 0, 0, -1, -36
+"d:\Projetos\studyPDF\client\public\favicon-study.svg", "XML", 0, 0, 0, 0, 0, 0, -9, 0, 0, -1, -10
+"d:\Projetos\studyPDF\client\public\icons.svg", "XML", 0, 0, 0, 0, 0, 0, -24, 0, 0, -1, -25
+"d:\Projetos\studyPDF\client\src\App.css", "PostCSS", 0, 0, 0, 0, 0, -164, 0, 0, 0, -14, -178
+"d:\Projetos\studyPDF\client\src\App.tsx", "TypeScript JSX", 0, 0, 0, 0, -11, 0, 0, 0, 0, -3, -14
+"d:\Projetos\studyPDF\client\src\app\components\ChatArea.tsx", "TypeScript JSX", 0, 0, 0, 0, -94, 0, 0, 0, 0, -8, -102
+"d:\Projetos\studyPDF\client\src\app\components\MessageInput.tsx", "TypeScript JSX", 0, 0, 0, 0, -54, 0, 0, 0, 0, -8, -62
+"d:\Projetos\studyPDF\client\src\app\components\QuickActions.tsx", "TypeScript JSX", 0, 0, 0, 0, -47, 0, 0, 0, 0, -5, -52
+"d:\Projetos\studyPDF\client\src\app\components\SideBar.tsx", "TypeScript JSX", 0, 0, 0, 0, -95, 0, 0, 0, 0, -11, -106
+"d:\Projetos\studyPDF\client\src\app\components\UploadArea.tsx", "TypeScript JSX", 0, 0, 0, 0, -80, 0, 0, 0, 0, -14, -94
+"d:\Projetos\studyPDF\client\src\app\components\ui\Header.tsx", "TypeScript JSX", 0, 0, 0, 0, -26, 0, 0, 0, 0, -5, -31
+"d:\Projetos\studyPDF\client\src\context\ChatContext.ts", "TypeScript", 0, -20, 0, 0, 0, 0, 0, 0, 0, -4, -24
+"d:\Projetos\studyPDF\client\src\context\ChatProvider.tsx", "TypeScript JSX", 0, 0, 0, 0, -59, 0, 0, 0, 0, -12, -71
+"d:\Projetos\studyPDF\client\src\features\pdf\extractPdfData.ts", "TypeScript", 0, -47, 0, 0, 0, 0, 0, 0, 0, -10, -57
+"d:\Projetos\studyPDF\client\src\hooks\useChat.ts", "TypeScript", 0, -44, 0, 0, 0, 0, 0, 0, 0, -8, -52
+"d:\Projetos\studyPDF\client\src\hooks\useUploadFile.ts", "TypeScript", 0, -49, 0, 0, 0, 0, 0, 0, 0, -11, -60
+"d:\Projetos\studyPDF\client\src\main.tsx", "TypeScript JSX", 0, 0, 0, 0, -9, 0, 0, 0, 0, -2, -11
+"d:\Projetos\studyPDF\client\src\pages\ChatPage.tsx", "TypeScript JSX", 0, 0, 0, 0, -45, 0, 0, 0, 0, -7, -52
+"d:\Projetos\studyPDF\client\src\pages\HomePage.tsx", "TypeScript JSX", 0, 0, 0, 0, -18, 0, 0, 0, 0, -6, -24
+"d:\Projetos\studyPDF\client\src\routes\AppRoutes.tsx", "TypeScript JSX", 0, 0, 0, 0, -13, 0, 0, 0, 0, -3, -16
+"d:\Projetos\studyPDF\client\src\services\api.ts", "TypeScript", 0, -38, 0, 0, 0, 0, 0, 0, 0, -7, -45
+"d:\Projetos\studyPDF\client\src\types\types.d.ts", "TypeScript", 0, -7, 0, 0, 0, 0, 0, 0, 0, -1, -8
+"d:\Projetos\studyPDF\client\tsconfig.app.json", "JSON", 0, 0, -21, 0, 0, 0, 0, 0, -2, -3, -26
+"d:\Projetos\studyPDF\client\tsconfig.json", "JSON with Comments", -7, 0, 0, 0, 0, 0, 0, 0, 0, -1, -8
+"d:\Projetos\studyPDF\client\tsconfig.node.json", "JSON", 0, 0, -20, 0, 0, 0, 0, 0, -2, -3, -25
+"d:\Projetos\studyPDF\client\vite.config.ts", "TypeScript", 0, -6, 0, 0, 0, 0, 0, 0, -1, -2, -9
+"d:\Projetos\studyPDF\server\dist\controllers\chatController.js", "JavaScript", 0, 0, 0, 25, 0, 0, 0, 0, 0, 1, 26
+"d:\Projetos\studyPDF\server\dist\controllers\uploadController.js", "JavaScript", 0, 0, 0, 19, 0, 0, 0, 0, 0, 1, 20
+"d:\Projetos\studyPDF\server\dist\index.js", "JavaScript", 0, 0, 0, 14, 0, 0, 0, 0, 0, 1, 15
+"d:\Projetos\studyPDF\server\dist\routes\chat.js", "JavaScript", 0, 0, 0, 5, 0, 0, 0, 0, 0, 1, 6
+"d:\Projetos\studyPDF\server\dist\routes\upload.js", "JavaScript", 0, 0, 0, 5, 0, 0, 0, 0, 0, 1, 6
+"d:\Projetos\studyPDF\server\dist\services\promptService.js", "JavaScript", 0, 0, 0, 22, 0, 0, 0, 0, 0, 1, 23
+"d:\Projetos\studyPDF\server\dist\services\textStore.js", "JavaScript", 0, 0, 0, 4, 0, 0, 0, 0, 0, 1, 5
+"d:\Projetos\studyPDF\server\package-lock.json", "JSON", 0, 0, 2656, 0, 0, 0, 0, 0, 0, 1, 2657
+"d:\Projetos\studyPDF\server\package.json", "JSON", 0, 0, 32, 0, 0, 0, 0, 0, 0, 1, 33
+"d:\Projetos\studyPDF\server\src\controllers\chatController.ts", "TypeScript", 0, 26, 0, 0, 0, 0, 0, 0, 0, 8, 34
+"d:\Projetos\studyPDF\server\src\controllers\uploadController.ts", "TypeScript", 0, 23, 0, 0, 0, 0, 0, 0, 1, 6, 30
+"d:\Projetos\studyPDF\server\src\index.ts", "TypeScript", 0, 18, 0, 0, 0, 0, 0, 0, 0, 5, 23
+"d:\Projetos\studyPDF\server\src\routes\chat.ts", "TypeScript", 0, 5, 0, 0, 0, 0, 0, 0, 0, 5, 10
+"d:\Projetos\studyPDF\server\src\routes\upload.ts", "TypeScript", 0, 5, 0, 0, 0, 0, 0, 0, 0, 5, 10
+"d:\Projetos\studyPDF\server\src\services\promptService.ts", "TypeScript", 0, 22, 0, 0, 0, 0, 0, 0, 0, 1, 23
+"d:\Projetos\studyPDF\server\src\services\textStore.ts", "TypeScript", 0, 4, 0, 0, 0, 0, 0, 0, 0, 2, 6
+"d:\Projetos\studyPDF\server\tsconfig.json", "JSON with Comments", 13, 0, 0, 0, 0, 0, 0, 0, 0, 1, 14
+"Total", "-", 6, -108, -1223, 73, -551, -164, -33, -17, -4, -115, -2136

@@ -1,0 +1,76 @@
+Date : 2026-07-13 12:12:25
+Directory : d:\Projetos\studyPDF\client
+Total : 29 files,  4915 codes, 5 comments, 157 blanks, all 5077 lines
+
+Languages
++--------------------+------------+------------+------------+------------+------------+
+| language           | files      | code       | comment    | blank      | total      |
++--------------------+------------+------------+------------+------------+------------+
+| JSON               |          4 |      3,911 |          4 |          8 |      3,923 |
+| TypeScript JSX     |         12 |        551 |          0 |         84 |        635 |
+| TypeScript         |          7 |        211 |          1 |         43 |        255 |
+| PostCSS            |          1 |        164 |          0 |         14 |        178 |
+| XML                |          2 |         33 |          0 |          2 |         35 |
+| JavaScript         |          1 |         21 |          0 |          2 |         23 |
+| HTML               |          1 |         17 |          0 |          3 |         20 |
+| JSON with Comments |          1 |          7 |          0 |          1 |          8 |
++--------------------+------------+------------+------------+------------+------------+
+
+Directories
++-----------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                            | files      | code       | comment    | blank      | total      |
++-----------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                               |         29 |      4,915 |          5 |        157 |      5,077 |
+| . (Files)                                                       |          8 |      3,962 |          5 |         16 |      3,983 |
+| public                                                          |          2 |         33 |          0 |          2 |         35 |
+| src                                                             |         19 |        920 |          0 |        139 |      1,059 |
+| src (Files)                                                     |          3 |        184 |          0 |         19 |        203 |
+| src\app                                                         |          6 |        396 |          0 |         51 |        447 |
+| src\app\components                                              |          6 |        396 |          0 |         51 |        447 |
+| src\app\components (Files)                                      |          5 |        370 |          0 |         46 |        416 |
+| src\app\components\ui                                           |          1 |         26 |          0 |          5 |         31 |
+| src\context                                                     |          2 |         79 |          0 |         16 |         95 |
+| src\features                                                    |          1 |         47 |          0 |         10 |         57 |
+| src\features\pdf                                                |          1 |         47 |          0 |         10 |         57 |
+| src\hooks                                                       |          2 |         93 |          0 |         19 |        112 |
+| src\pages                                                       |          2 |         63 |          0 |         13 |         76 |
+| src\routes                                                      |          1 |         13 |          0 |          3 |         16 |
+| src\services                                                    |          1 |         38 |          0 |          7 |         45 |
+| src\types                                                       |          1 |          7 |          0 |          1 |          8 |
++-----------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++-----------------------------------------------------------------+--------------------+------------+------------+------------+------------+
+| filename                                                        | language           | code       | comment    | blank      | total      |
++-----------------------------------------------------------------+--------------------+------------+------------+------------+------------+
+| d:\Projetos\studyPDF\client\eslint.config.js                    | JavaScript         |         21 |          0 |          2 |         23 |
+| d:\Projetos\studyPDF\client\index.html                          | HTML               |         17 |          0 |          3 |         20 |
+| d:\Projetos\studyPDF\client\package-lock.json                   | JSON               |      3,835 |          0 |          1 |      3,836 |
+| d:\Projetos\studyPDF\client\package.json                        | JSON               |         35 |          0 |          1 |         36 |
+| d:\Projetos\studyPDF\client\public\favicon-study.svg            | XML                |          9 |          0 |          1 |         10 |
+| d:\Projetos\studyPDF\client\public\icons.svg                    | XML                |         24 |          0 |          1 |         25 |
+| d:\Projetos\studyPDF\client\src\App.css                         | PostCSS            |        164 |          0 |         14 |        178 |
+| d:\Projetos\studyPDF\client\src\App.tsx                         | TypeScript JSX     |         11 |          0 |          3 |         14 |
+| d:\Projetos\studyPDF\client\src\app\components\ChatArea.tsx     | TypeScript JSX     |         94 |          0 |          8 |        102 |
+| d:\Projetos\studyPDF\client\src\app\components\MessageInput.tsx | TypeScript JSX     |         54 |          0 |          8 |         62 |
+| d:\Projetos\studyPDF\client\src\app\components\QuickActions.tsx | TypeScript JSX     |         47 |          0 |          5 |         52 |
+| d:\Projetos\studyPDF\client\src\app\components\SideBar.tsx      | TypeScript JSX     |         95 |          0 |         11 |        106 |
+| d:\Projetos\studyPDF\client\src\app\components\UploadArea.tsx   | TypeScript JSX     |         80 |          0 |         14 |         94 |
+| d:\Projetos\studyPDF\client\src\app\components\ui\Header.tsx    | TypeScript JSX     |         26 |          0 |          5 |         31 |
+| d:\Projetos\studyPDF\client\src\context\ChatContext.ts          | TypeScript         |         20 |          0 |          4 |         24 |
+| d:\Projetos\studyPDF\client\src\context\ChatProvider.tsx        | TypeScript JSX     |         59 |          0 |         12 |         71 |
+| d:\Projetos\studyPDF\client\src\features\pdf\extractPdfData.ts  | TypeScript         |         47 |          0 |         10 |         57 |
+| d:\Projetos\studyPDF\client\src\hooks\useChat.ts                | TypeScript         |         44 |          0 |          8 |         52 |
+| d:\Projetos\studyPDF\client\src\hooks\useUploadFile.ts          | TypeScript         |         49 |          0 |         11 |         60 |
+| d:\Projetos\studyPDF\client\src\main.tsx                        | TypeScript JSX     |          9 |          0 |          2 |         11 |
+| d:\Projetos\studyPDF\client\src\pages\ChatPage.tsx              | TypeScript JSX     |         45 |          0 |          7 |         52 |
+| d:\Projetos\studyPDF\client\src\pages\HomePage.tsx              | TypeScript JSX     |         18 |          0 |          6 |         24 |
+| d:\Projetos\studyPDF\client\src\routes\AppRoutes.tsx            | TypeScript JSX     |         13 |          0 |          3 |         16 |
+| d:\Projetos\studyPDF\client\src\services\api.ts                 | TypeScript         |         38 |          0 |          7 |         45 |
+| d:\Projetos\studyPDF\client\src\types\types.d.ts                | TypeScript         |          7 |          0 |          1 |          8 |
+| d:\Projetos\studyPDF\client\tsconfig.app.json                   | JSON               |         21 |          2 |          3 |         26 |
+| d:\Projetos\studyPDF\client\tsconfig.json                       | JSON with Comments |          7 |          0 |          1 |          8 |
+| d:\Projetos\studyPDF\client\tsconfig.node.json                  | JSON               |         20 |          2 |          3 |         25 |
+| d:\Projetos\studyPDF\client\vite.config.ts                      | TypeScript         |          6 |          1 |          2 |          9 |
+| Total                                                           |                    |      4,915 |          5 |        157 |      5,077 |
++-----------------------------------------------------------------+--------------------+------------+------------+------------+------------+

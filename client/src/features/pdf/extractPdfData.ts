@@ -1,9 +1,8 @@
-import * as pdfjsLib from 'pdfjs-dist';
-import pdfWorker from 'pdfjs-dist/build/pdf.worker.min.mjs?url';
-
-pdfjsLib.GlobalWorkerOptions.workerSrc = pdfWorker;
-
 export default async function extractPdfData(file: File) {
+  const pdfjsLib = await import('pdfjs-dist');
+  const pdfWorker = await import('pdfjs-dist/build/pdf.worker.min.mjs?url');
+  pdfjsLib.GlobalWorkerOptions.workerSrc = pdfWorker.default;
+
   try {
     const arrayBuffer = await file.arrayBuffer();
 

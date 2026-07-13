@@ -37,7 +37,7 @@ const UploadArea = ({ onFileUpload }: UploadAreaProps) => {
   };
 
   return (
-    <section className="flex items-center justify-center min-h-screen p-6 bg-gray-50">
+    <main className="flex items-center justify-center min-h-screen p-6 bg-gray-50">
       <div
         onDragOver={handleDragOver}
         onDragLeave={handleDragLeave}
@@ -86,7 +86,7 @@ const UploadArea = ({ onFileUpload }: UploadAreaProps) => {
           </button>
         </div>
       </div>
-    </section>
+    </main>
   );
 };
 

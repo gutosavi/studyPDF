@@ -16,7 +16,7 @@ const ChatPage = () => {
   const document = location.state?.document;
 
   return (
-    <section className="flex h-screen bg-white overflow-hidden">
+    <main className="flex h-screen bg-white overflow-hidden">
       <div className="hidden lg:block">
         <SideBar
           fileName={document.name}
@@ -44,7 +44,7 @@ const ChatPage = () => {
 
         <MessageInput onSend={handleSendMessage} disabled={isProcessing} />
       </div>
-    </section>
+    </main>
   );
 };
 

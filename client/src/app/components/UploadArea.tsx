@@ -1,5 +1,5 @@
-import { FileText, Upload } from 'lucide-react';
 import React from 'react';
+import { FileText, Upload } from 'lucide-react';
 
 interface UploadAreaProps {
   onFileUpload: (file: File) => void;
@@ -7,9 +7,11 @@ interface UploadAreaProps {
 
 const UploadArea = ({ onFileUpload }: UploadAreaProps) => {
   const [isDragging, setIsDragging] = React.useState(false);
+  const [error, setError] = React.useState(false);
 
   const handleDragOver = (e: React.DragEvent) => {
     e.preventDefault();
+    setError(false);
     setIsDragging(true);
   }; // disparado quando o elemento está sendo arrastado sobre o alvo.
 
@@ -24,7 +26,10 @@ const UploadArea = ({ onFileUpload }: UploadAreaProps) => {
     const files = Array.from(e.dataTransfer.files);
     const pdfFile = files.find((file) => file.type === 'application/pdf');
 
-    if (pdfFile) {
+    if (!pdfFile) {
+      setError(true);
+    } else {
+      setError(false);
       onFileUpload(pdfFile);
     }
   };
@@ -33,6 +38,8 @@ const UploadArea = ({ onFileUpload }: UploadAreaProps) => {
     const file = e.target.files?.[0];
     if (file && file.type === 'application/pdf') {
       onFileUpload(file);
+    } else {
+      setError(true);
     }
   };
 
@@ -45,11 +52,7 @@ const UploadArea = ({ onFileUpload }: UploadAreaProps) => {
         className={`
           relative w-full max-w-2xl p-12 rounded-2xl border-2 border-dashed
           transition-all duration-200 cursor-pointer
-          ${
-            isDragging
-              ? 'border-blue-500 bg-blue-50'
-              : 'border-gray-300 bg-white hover:border-gray-400 hover:bg-gray-50'
-          }
+          ${isDragging ? 'border-blue-500 bg-blue-50' : error ? 'border-red-400 hover:border-red-500 animate-shake' : 'border-gray-300 bg-white hover:border-gray-400 hover:bg-gray-50'}
         `}
       >
         <input
@@ -58,7 +61,7 @@ const UploadArea = ({ onFileUpload }: UploadAreaProps) => {
           id="inputFile"
           accept=".pdf"
           onChange={handleFileInput}
-          className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+          className="absolute inset-0 w-full h-full hidden cursor-pointer"
         />
 
         <div className="flex flex-col items-center gap-4 text-center">
@@ -80,10 +83,11 @@ const UploadArea = ({ onFileUpload }: UploadAreaProps) => {
               Arraste e solte ou clique para selecionar um arquivo PDF
             </p>
           </div>
-
-          <button className="px-6 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors text-sm font-medium">
-            Selecionar arquivo
-          </button>
+          <label htmlFor="inputFile" className="cursor-pointer">
+            <div className="px-6 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors text-sm font-medium">
+              Selecionar arquivo
+            </div>
+          </label>
         </div>
       </div>
     </main>
